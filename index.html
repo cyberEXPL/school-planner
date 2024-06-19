@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Study Planner & Tic-Tac-Toe</title>
+    <style>
+        body {
+    font-family: 'Times New Roman', Times, serif
+    margin: 20px;
+    text-align: center;
+}
+
+.welcome-container, #mainApp {
+    margin-bottom: 40px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: blanchedalmond;
+}
+
+.cell {
+    width: 60px;
+    height: 60px;
+    display: inline-block;
+    border: 2px solid teal;
+    line-height: 60px;
+    font-size: 24px;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.row {
+    display: flex;
+}
+
+.board {
+    display: inline-block;
+}
+
+#restartButton {
+    margin-top: 20px;
+}
+
+#status {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.timer-container {
+    margin-top: 40px;
+}
+</style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>Welcome to Zambian Universities Study Planner</h1>
+        <p>Please enter your name and university name:</p>
+        <form id="userForm">
+            <input type="text" id="userName" placeholder="Your Name" required>
+            <input type="text" id="uniName" placeholder="University Name" required>
+            <button type="submit">Start Planning</button>
+        </form>
+    </div>
+
+    <div id="mainApp" style="display: none;">
+        <h2>Hello <span id="displayName"></span>, let's organize your schedules!</h2>
+
+        <div class="form-container">
+            <h3>Add Schedule</h3>
+            <form id="timeForm">
+                <label for="scheduleType">Schedule Type:</label>
+                <select id="scheduleType" required>
+                    <option value="Class">Class</option>
+                    <option value="Study">Study</option>
+                    <option value="Exam">Exam</option>
+                </select>
+                <label for="courseName">Course Name:</label>
+                <input type="text" id="courseName" required>
+                <label for="day">Day:</label>
+                <select id="day" required>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+                    <option value="Sunday">Sunday</option>
+                </select>
+                <label for="time">Time:</label>
+                <input type="time" id="time" required>
+                <label for="color">Color:</label>
+                <input type="color" id="color" required>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+
+        <div class="timetable-container">
+            <h3>Study Schedule</h3>
+            <table id="timetableStudy">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody id="timetableBodyStudy">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="timetable-container">
+            <h3>Class Schedule</h3>
+            <table id="timetableClass">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody id="timetableBodyClass">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="timetable-container">
+            <h3>Exam Schedule</h3>
+            <table id="timetableExam">
+                <thead>
+                    <tr>
+                        <th>Course Name</th>
+                        <th>Day</th>
+                        <th>Time</th>
+                        <th>Color</th>
+                    </tr>
+                </thead>
+                <tbody id="timetableBodyExam">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="timer-container">
+            <h3>Timer</h3>
+            <p id="timer">00:00:00</p>
+            <button id="startTimer">Start</button>
+            <button id="stopTimer">Stop</button>
+            <button id="resetTimer">Reset</button>
+        </div>
+
+        <div class="tic-tac-toe-container">
+            <h3>Tic-Tac-Toe Game</h3>
+            <div id="ticTacToeBoard" class="board">
+                <div class="row">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                </div>
+                <div class="row">
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+            </div>
+            <button id="restartButton">Restart Game</button>
+            <p id="status"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
