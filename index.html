@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Study Planner & Tic-Tac-Toe</title>
-    <style>
-        body {
-    font-family: 'Times New Roman', Times, serif
+    <title>AcademicScheduler</title>
+<style>
+    body {
+    font-family: 'Times New Roman', Times, serif;
     margin: 20px;
     text-align: center;
 }
@@ -26,19 +26,19 @@ table {
 }
 
 th, td {
-    border: 1px solid #ddd;
+    border: 1px solid rgb(0, 0, 0);
     padding: 8px;
 }
 
 th {
-    background-color: blanchedalmond;
+    background-color: lightblue;
 }
 
 .cell {
     width: 60px;
     height: 60px;
     display: inline-block;
-    border: 2px solid teal;
+    border: 2px solid #333;
     line-height: 60px;
     font-size: 24px;
     cursor: pointer;
@@ -65,21 +65,24 @@ th {
 .timer-container {
     margin-top: 40px;
 }
+
 </style>
 </head>
 <body>
     <div class="welcome-container">
-        <h1>Welcome to Zambian Universities Study Planner</h1>
+        <h1>Welcome,Navigate your university life with confidence. You've got this! </h1>
         <p>Please enter your name and university name:</p>
         <form id="userForm">
             <input type="text" id="userName" placeholder="Your Name" required>
             <input type="text" id="uniName" placeholder="University Name" required>
             <button type="submit">Start Planning</button>
         </form>
+        <p id="university"></p>
     </div>
 
-    <div id="mainApp" style="display: none;">
-        <h2>Hello <span id="displayName"></span>, let's organize your schedules!</h2>
+    <div id="mainApp" >
+        <h2>Hello <span id="displayName"></span> your schedule is locked and loaded. Let’s make it a productive week! </h2>
+        <p id="university"></p> 
 
         <div class="form-container">
             <h3>Add Schedule</h3>
@@ -111,14 +114,13 @@ th {
         </div>
 
         <div class="timetable-container">
-            <h3>Study Schedule</h3>
-            <table id="timetableStudy">
+            <h3>Class Schedule</h3>
+            <table id="timetableClass">
                 <thead>
                     <tr>
                         <th>Course Name</th>
                         <th>Day</th>
                         <th>Time</th>
-                        <th>Color</th>
                     </tr>
                 </thead>
                 <tbody id="timetableBodyStudy">
@@ -127,14 +129,13 @@ th {
         </div>
 
         <div class="timetable-container">
-            <h3>Class Schedule</h3>
-            <table id="timetableClass">
+            <h3>Study Schedule</h3>
+            <table id="timetableStudy">
                 <thead>
                     <tr>
                         <th>Course Name</th>
                         <th>Day</th>
                         <th>Time</th>
-                        <th>Color</th>
                     </tr>
                 </thead>
                 <tbody id="timetableBodyClass">
@@ -150,7 +151,6 @@ th {
                         <th>Course Name</th>
                         <th>Day</th>
                         <th>Time</th>
-                        <th>Color</th>
                     </tr>
                 </thead>
                 <tbody id="timetableBodyExam">
@@ -193,3 +193,6 @@ th {
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
